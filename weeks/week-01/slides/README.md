@@ -2,7 +2,7 @@
 
 | Lesson | Canva presentation |
 |---|---|
-| 1.1 — Course orientation | [Open in Canva](https://canva.link/d7abh8wh8yr76hk) |
-| 1.4 — HTTP request and response | [Open in Canva](https://canva.link/ggdvp3req6isvou) |
+| 1.1 — Course orientation | [Open in Canva](https://canva.link/6ziex9mtmowgtev) |
+| 1.4 — HTTP request and response | [Open in Canva](https://canva.link/18n9bmdy93lpzvc) |
 
-Presentations are editable in Canva and can be used for the corresponding recorded lessons.
+Both decks follow the visual style of the BeXpert Google Slides teaching reference. Use the progressive steps in the slides to walk through each process while recording. Final recording animations and slide transitions can be applied in Canva.
