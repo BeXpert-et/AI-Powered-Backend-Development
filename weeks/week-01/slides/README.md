@@ -2,7 +2,7 @@
 
 | Lesson | Canva presentation |
 |---|---|
-| 1.1 — Course orientation | [Open editable Canva presentation](#) |
-| 1.4 — HTTP request and response | [Open editable Canva presentation](#) |
+| 1.1 — Course orientation | [Open in Canva](https://canva.link/d7abh8wh8yr76hk) |
+| 1.4 — HTTP request and response | [Open in Canva](https://canva.link/ggdvp3req6isvou) |
 
-Slide decks live in Canva. Update the links after the presentation generation finishes. Keep slide content concise, use the visual request/response diagrams when explaining HTTP, and record narration separately for the BeXpert LMS.
+Presentations are editable in Canva and can be used for the corresponding recorded lessons.
