@@ -1,73 +1,55 @@
 # AI-Powered Backend Development with Node.js
 
-**BeXpert · 12 weeks · Beginner-friendly, engineering-first · AI-assisted**
+**BeXpert | 12-week program**
 
-[BeXpert website](https://www.bexpert.et/) · [Course roadmap](docs/course-roadmap.md) · [Getting started](docs/getting-started.md) · [Assignments](docs/submission-guide.md)
+A practical backend development course covering Node.js, APIs, databases, testing, deployment, and AI-assisted engineering. The course is designed for learners who know basic programming and are new to backend development.
 
-## About this program
+## Course format
 
-This is a practical 12-week course for learners who know basic programming and are new to backend development. We learn **how backend systems work** before using AI to accelerate delivery. The goal is to build, test, document, and deploy **production-oriented** Node.js services while understanding their security, reliability, and design tradeoffs.
+- **Duration:** 12 weeks
+- **Live sessions:** Two 60-minute sessions each week — an instructor workshop and a student project review
+- **Other learning activities:** Recorded lessons and weekly assignments
+- **Class size:** Up to 10 students
+- **AI tools:** Introduced gradually after the fundamentals; paid tools are not required
+- **Final project:** Student-selected backend application during the final weeks
 
-### Learning format
+The goal is to build production-oriented backend applications with AI assistance while retaining responsibility for design, security, debugging, and testing.
 
-- **Two live meetings per week:** one 60-minute instructor engineering workshop, and one 60-minute student code demonstration/review.
-- Recorded lessons and hands-on assignments between sessions.
-- Cohorts of up to **10 students**; every student submits work each week, with five rotating deep-dive presenters per review session.
-- AI assistance starts as a tutor and grows toward supervised pair programming. **No paid AI subscription is required.**
+## Curriculum
 
-## 12-week roadmap
+| Week | Topic |
+|---|---|
+| 01 | JavaScript, HTTP basics, and Git |
+| 02 | Asynchronous JavaScript and Node.js |
+| 03 | Express, REST APIs, and code organization |
+| 04 | PostgreSQL and relational databases |
+| 05 | TypeScript, Prisma, and migrations |
+| 06 | Validation and authentication fundamentals |
+| 07 | Authorization and API security |
+| 08 | Testing, documentation, and logging |
+| 09 | Docker, CI/CD, and deployment |
+| 10 | LLM API integration |
+| 11 | Background jobs and RAG fundamentals |
+| 12 | AI-assisted development and capstone presentation |
 
-| Week | Focus | Outcome |
-|---|---|---|
-| 01 | JavaScript, HTTP mental model, Git | CLI JSON data tool |
-| 02 | Async JavaScript, Node.js runtime | Node HTTP mini API |
-| 03 | Express, REST, middleware, layering | Task CRUD API |
-| 04 | PostgreSQL, SQL, relational integrity | Schema and SQL-backed data model |
-| 05 | TypeScript, Prisma, migrations | Typed database-backed API |
-| 06 | Validation and authentication fundamentals | Validated identity flows |
-| 07 | Authorization and API security | Ownership-protected multi-user API |
-| 08 | Testing, OpenAPI, logging | Tested and documented API |
-| 09 | Docker, CI, deployment, operations | Deployed API |
-| 10 | LLM APIs and safe integrations | AI-enabled endpoint |
-| 11 | Queues, embeddings, RAG fundamentals | Guided retrieval/worker lab |
-| 12 | AI coding workflows and capstone defense | Delivered, defended backend project |
+See [curriculum](docs/curriculum.md) for the learning focus.
 
-See [the detailed roadmap](docs/course-roadmap.md) and [weekly modules](weeks/).
+## Course documents
 
-## What you will learn
-
-HTTP and REST design; Node.js async behavior; JavaScript and TypeScript; Express; PostgreSQL and SQL; Prisma; authentication and **object-level authorization**; validation; automated tests; OpenAPI; Docker; CI and deployment; introductory LLM integrations and RAG; and responsible AI-assisted engineering.
-
-**We prioritize understanding over accumulating tools.** Advanced scaling, OAuth internals, and full RAG pipelines are optional extensions.
-
-## Repository navigation
-
-- [Get started](docs/getting-started.md)
-- [Course roadmap](docs/course-roadmap.md)
-- [Student and classroom rules](docs/course-rules.md)
+- [Course rules](docs/course-rules.md)
 - [AI usage policy](docs/ai-usage-policy.md)
-- [Assignment submission guide](docs/submission-guide.md)
-- [Engineering review format](docs/live-sessions.md)
-- [Capstone guide](capstone/README.md)
-- [Contributing](CONTRIBUTING.md)
+- [Live session format and instructor guidance](docs/live-sessions.md)
+- [Assessment and submission guidelines](docs/assessment.md)
 
-## How we work
+## Folder structure
 
-1. Watch the recordings and complete the preparation check.
-2. Attend the instructor workshop to solve a design/debugging problem.
-3. Complete the weekly assignment in **your own repository**, including tests, setup instructions, and AI-use disclosure.
-4. Submit a repository/PR link before the weekly review.
-5. Demonstrate and explain your engineering decisions when scheduled; act as a peer reviewer otherwise.
+```text
+docs/                 Course documents and policies
+weeks/week-01/        Week 1 resources (to be added)
+...
+weeks/week-12/        Week 12 resources (to be added)
+```
 
-A running demo alone is not proof of competence. You must be able to explain your API contracts, data models, failure cases, tests, and security choices.
+Weekly learning resources and examples will be added as the course progresses. These folders do not contain assignments or solutions yet.
 
-## Capstone
-
-Students propose their own project, scope a realistic MVP, implement and deploy it, and explain their technical decisions. Project scoping begins before the final week. See [capstone requirements](capstone/README.md).
-
-## Important
-
-The curriculum and policies in this repository are **proposed course materials pending BeXpert program approval**; individual instructors may clarify deadlines and cohort logistics. Do not commit secrets, real user credentials, or sensitive datasets. Do not publish instructor solution keys here.
-
----
-**BeXpert — Learn to build. Learn to reason. Learn to engineer with AI.**
+[BeXpert](https://www.bexpert.et/)
