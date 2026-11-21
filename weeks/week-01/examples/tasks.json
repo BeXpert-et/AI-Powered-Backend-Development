@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Plan endpoints",
+    "status": "open",
+    "priority": 2
+  },
+  {
+    "id": 2,
+    "title": "Check database",
+    "status": "done",
+    "priority": 1
+  },
+  {
+    "id": 3,
+    "title": "Write error tests",
+    "status": "open",
+    "priority": 3
+  },
+  {
+    "id": 4,
+    "title": "Document API",
+    "status": "open",
+    "priority": 2
+  }
+]
