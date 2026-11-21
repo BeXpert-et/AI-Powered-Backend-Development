@@ -12,6 +12,7 @@ A practical backend development course covering Node.js, APIs, databases, testin
 - **Class size:** Up to 10 students
 - **AI tools:** Introduced gradually after the fundamentals; paid tools are not required
 - **Final project:** Student-selected backend application during the final weeks
+- **Learning platform:** [BeXpert LMS](https://dashboard.bexpert.et/)
 
 The goal is to build production-oriented backend applications with AI assistance while retaining responsibility for design, security, debugging, and testing.
 
@@ -32,24 +33,41 @@ The goal is to build production-oriented backend applications with AI assistance
 | 11 | Background jobs and RAG fundamentals |
 | 12 | AI-assisted development and capstone presentation |
 
-See [curriculum](docs/curriculum.md) for the learning focus.
+See the [curriculum](docs/curriculum.md) for the learning focus.
 
 ## Course documents
 
+- [Curriculum](docs/curriculum.md)
 - [Course rules](docs/course-rules.md)
 - [AI usage policy](docs/ai-usage-policy.md)
-- [Live session format and instructor guidance](docs/live-sessions.md)
 - [Assessment and submission guidelines](docs/assessment.md)
 
-## Folder structure
+## Repository structure
 
 ```text
-docs/                 Course documents and policies
-weeks/week-01/        Week 1 resources (to be added)
-...
-weeks/week-12/        Week 12 resources (to be added)
+AI-Powered-Backend-Development/
+├── README.md
+├── docs/
+│   ├── curriculum.md
+│   ├── course-rules.md
+│   ├── ai-usage-policy.md
+│   └── assessment.md
+└── weeks/
+    ├── week-01/
+    ├── week-02/
+    ├── week-03/
+    ├── week-04/
+    ├── week-05/
+    ├── week-06/
+    ├── week-07/
+    ├── week-08/
+    ├── week-09/
+    ├── week-10/
+    ├── week-11/
+    └── week-12/
 ```
 
-Weekly learning resources and examples will be added as the course progresses. These folders do not contain assignments or solutions yet.
+## Links
 
-[BeXpert](https://www.bexpert.et/)
+- [BeXpert website](https://www.bexpert.et/)
+- [BeXpert LMS](https://dashboard.bexpert.et/)

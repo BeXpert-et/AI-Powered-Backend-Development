@@ -9,5 +9,3 @@ The course combines recorded lessons, live workshops, practical assignments and 
 - Feedback should be specific, respectful and constructive.
 - Do not publish API keys, passwords or private user data in code, repositories or AI prompts.
 - Final projects are student-selected and should have a realistic, testable scope.
-
-These guidelines reflect the agreed course approach; BeXpert can finalize administrative details such as deadlines and attendance separately.
