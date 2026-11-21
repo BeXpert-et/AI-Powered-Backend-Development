@@ -9,7 +9,6 @@ A practical backend development course covering Node.js, APIs, databases, testin
 - **Duration:** 12 weeks
 - **Live sessions:** Two 60-minute sessions each week — an instructor workshop and a student project review
 - **Other learning activities:** Recorded lessons and weekly assignments
-- **Class size:** Up to 10 students
 - **AI tools:** Introduced gradually after the fundamentals; paid tools are not required
 - **Final project:** Student-selected backend application during the final weeks
 - **Learning platform:** [BeXpert LMS](https://dashboard.bexpert.et/)
