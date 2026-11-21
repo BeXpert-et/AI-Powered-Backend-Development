@@ -1,4 +1,4 @@
-# Revised curriculum
+# Curriculum
 
 The 12-week program emphasizes backend engineering fundamentals before more advanced AI-assisted workflows. Recordings cover technical walkthroughs; workshops focus on reasoning, debugging, security, design decisions, and feedback.
 
