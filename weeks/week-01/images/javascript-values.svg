@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1020" height="330" viewBox="0 0 1020 330" role="img">
+<rect width="1020" height="330" rx="16" fill="#faf7e5"/>
+<style>text{font-family:Arial, sans-serif;fill:#0b3784}.heading{font-size:26px;font-weight:bold}.label{font-size:22px;font-weight:bold}.small{font-size:17px;fill:#34302a}.box{fill:#fff;stroke:#0b3784;stroke-width:2}.accent{fill:#f9d100;stroke:#0b3784;stroke-width:2}</style>
+<text x="32" y="48" class="heading">A JavaScript value has a type</text>
+<rect x="35" y="90" width="440" height="202" rx="16" class="box"/><rect x="542" y="90" width="440" height="202" rx="16" class="box"/>
+<text x="64" y="136" class="label">Primitive values</text><text x="570" y="136" class="label">Reference values</text>
+<text x="64" y="176" class="small">string · number · boolean</text><text x="64" y="212" class="small">undefined · null · bigint · symbol</text>
+<text x="570" y="176" class="small">object · array · function</text><text x="570" y="212" class="small">Can hold nested properties</text>
+<rect x="64" y="242" width="381" height="32" rx="9" class="accent"/><text x="78" y="265" class="small">Examples: 42, "hi", true</text>
+<rect x="570" y="242" width="381" height="32" rx="9" class="accent"/><text x="584" y="265" class="small">Examples: {}, [], () => {}</text>
+</svg>
