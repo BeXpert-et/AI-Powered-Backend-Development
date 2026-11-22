@@ -1,8 +1,6 @@
-# Main Title 4: Functions and Reusable JavaScript Logic
+# 4: Functions and Reusable JavaScript Logic
 
 **Goal:** Build small testable units of logic and understand how callbacks and scope affect behavior.
-
-**Recording setup:** open this file in VS Code with Markdown Preview Enhanced. Each JavaScript block can be run independently. The snippets also read normally on GitHub.
 
 ![Function scope and closure retaining a private counter](../images/scope-closure.svg)
 
@@ -17,11 +15,25 @@ const formatId = function (id) { return "TASK-" + id; };
 console.log(formatId(12));
 ~~~
 
-**Why it matters for backend work:** Small named functions make validation, transformation, and business rules testable without starting a web server.
+**Backend connection:** Small named functions make validation, transformation, and business rules testable without starting a web server.
 
-**Watch out:** Calling a function expression declared with `const` before initialization throws an error.
+**Common mistake:** Calling a function expression declared with `const` before initialization throws an error.
 
-**Try it:** Refactor a repeated line of formatting logic into a reusable function.
+**Practice:** Refactor a repeated line of formatting logic into a reusable function.
+
+### Why reusable functions matter
+
+Without functions, the same validation or formatting rule may be copied into several places. Once extracted into a function, it has a name, clearly defined inputs, and one implementation to change.
+
+```javascript {cmd="node"}
+function formatCourse(name) {
+  return name.trim().toUpperCase();
+}
+const courses = [" backend ", " ai fundamentals "];
+console.log(courses.map(formatCourse));
+```
+
+Function declarations are generally available throughout their enclosing scope. A function expression assigned to `const` becomes usable after the declaration is evaluated. Prefer understandable names such as `validateEnrollment` over generic names such as `doStuff`.
 
 ## 4.2 Function Parameters, Arguments, Default Values, and return
 
@@ -37,11 +49,26 @@ console.log(calculateTotal(75));
 console.log(calculateTotal(75, 3));
 ~~~
 
-**Why it matters for backend work:** A function with explicit inputs and outputs can be tested, reused, and connected to a route later.
+**Backend connection:** A function with explicit inputs and outputs can be tested, reused, and connected to a route later.
 
-**Watch out:** A default argument does not replace `null`; `calculateTotal(75, null)` still passes null.
+**Common mistake:** A default argument does not replace `null`; `calculateTotal(75, null)` still passes null.
 
-**Try it:** Why does `console.log` inside a function not replace `return`?
+**Practice:** Why does `console.log` inside a function not replace `return`?
+
+### Parameters, arguments, and return values
+
+In `function greet(name)`, `name` is the **parameter**. In `greet("Hana")`, `"Hana"` is the **argument**. A function's `return` value can be used in another expression, tested, or passed to another function.
+
+```javascript {cmd="node"}
+function addTax(price, rate = 0.15) {
+  return price + price * rate;
+}
+const total = addTax(100);
+console.log(total);      // 115
+console.log(addTax(100, 0)); // 100
+```
+
+If there is no `return`, a function ordinarily returns `undefined`. Defaults apply when an argument is omitted or explicitly `undefined`, not when it's `null`. Validate function inputs when they can come from outside the application.
 
 ## 4.3 Arrow Functions and Their Differences
 
@@ -58,11 +85,24 @@ const counter = {
 console.log(counter.increment());
 ~~~
 
-**Why it matters for backend work:** Arrow functions are common for callbacks and transformations; method syntax is clearer when the method uses the object as `this`.
+**Backend connection:** Arrow functions are common for callbacks and transformations; method syntax is clearer when the method uses the object as `this`.
 
-**Watch out:** `const task = () => { title: "Test" }` does not return an object literal; wrap the object in parentheses.
+**Common mistake:** `const task = () => { title: "Test" }` does not return an object literal; wrap the object in parentheses.
 
-**Try it:** Why should an object method using `this` usually not be an arrow function?
+**Practice:** Why should an object method using `this` usually not be an arrow function?
+
+### Concise syntax versus behavior
+
+Arrow functions are useful when passing a short function as an argument. A single expression may be returned without writing `return`. Curly braces create a function body, in which an explicit `return` is needed.
+
+```javascript {cmd="node"}
+const square = n => n * n;
+const squareWithBody = n => { return n * n; };
+const createTask = title => ({ title, done: false });
+console.log(square(3), squareWithBody(3), createTask("Review"));
+```
+
+The **`this` difference** is more than a style choice. Regular methods receive a context based on how they're called, while arrows capture `this` from their surrounding scope. This becomes important when writing object methods and event handlers.
 
 ## 4.4 Understanding Scope and How Variables Are Accessed
 
@@ -79,11 +119,26 @@ console.log(first(), first(), second());
 if (true) { const hidden = "block"; console.log(hidden); }
 ~~~
 
-**Why it matters for backend work:** Closures appear in middleware factories, configuration helpers, and callbacks. Avoid accidental shared mutable state when handling many requests.
+**Backend connection:** Closures appear in middleware factories, configuration helpers, and callbacks. Avoid accidental shared mutable state when handling many requests.
 
-**Watch out:** `hidden` above is not visible outside its block. Keeping mutable state at module scope can accidentally mix requests.
+**Common mistake:** `hidden` above is not visible outside its block. Keeping mutable state at module scope can accidentally mix requests.
 
-**Try it:** Predict the third call to `first()` and explain why `second()` starts at 1.
+**Practice:** Predict the third call to `first()` and explain why `second()` starts at 1.
+
+### Lexical scope and closures
+
+A function can read variables from the scope where it was **defined**. When that function is returned or passed elsewhere, it may continue to use those variables. This behavior is called a **closure**.
+
+```javascript {cmd="node"}
+function makePrefixer(prefix) {
+  return text => prefix + text;
+}
+const courseLabel = makePrefixer("COURSE: ");
+console.log(courseLabel("Backend"));
+console.log(courseLabel("AI"));
+```
+
+Closures are useful for creating configurable utilities and middleware. Be thoughtful about mutable shared state: a variable at module level can be accessed by many requests in a running server.
 
 ## 4.5 Callback Functions: Passing Functions as Arguments
 
@@ -101,12 +156,30 @@ setTimeout(() => console.log("timer callback"), 0);
 console.log("after scheduling");
 ~~~
 
-**Why it matters for backend work:** Callbacks connect route handlers, array processing, timers, and later asynchronous JavaScript lessons.
+**Backend connection:** Callbacks connect route handlers, array processing, timers, and later asynchronous JavaScript lessons.
 
-**Watch out:** Passing `transform()` executes immediately; passing `transform` lets the receiving function call it.
+**Common mistake:** Passing `transform()` executes immediately; passing `transform` lets the receiving function call it.
 
-**Try it:** Which callback runs synchronously here, and which one runs after the current synchronous code?
+**Practice:** Which callback runs synchronously here, and which one runs after the current synchronous code?
 
-## Recap
+### A callback is a function value
 
-Before moving on, explain the output of the examples without running them. Then change one input and predict what happens before executing.
+Passing a function lets the receiving function choose *when* to execute it. A callback can execute immediately, during a loop, or after an event. Being a callback does not automatically make it asynchronous.
+
+```javascript {cmd="node"}
+function applyToEach(items, action) {
+  for (const item of items) action(item);
+}
+applyToEach(["Hana", "Sami"], name => console.log("Hello", name));
+console.log("Completed synchronous processing");
+```
+
+Later, Node.js uses callbacks, promises, and events around asynchronous operations. For now, focus on the distinction between `process` (a function value) and `process()` (a call that executes it).
+
+## Review and practice
+
+1. Revisit an example from this chapter. Predict its output, run it, and explain any difference.
+2. Change one input or condition and test what changes.
+3. Identify one situation in a backend API where the concept would be useful.
+
+**Further reading:** [MDN JavaScript guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) · [Node.js learning](https://nodejs.org/en/learn)
