@@ -8,13 +8,13 @@ A dashboard must display a student's name, course title and progress. The simula
 
 ## Requirements
 
-1. Write \`wait(ms)\`, returning a Promise fulfilled after a timer.
-2. Implement \`getStudent(id)\`, \`getCourse(courseId)\`, and \`getProgress(studentId)\` using Promises and delays of roughly 50–150 ms.
-3. Use \`async\`/\`await\` to load the student first, then use \`Promise.all\` to load course and progress concurrently.
-4. Return an object with exactly \`student\`, \`course\`, and \`progressPercent\`.
-5. Demonstrate and handle one rejected lookup with \`try/catch\`; log an understandable message without printing an unhandled rejection.
-6. Predict and demonstrate the log order of \`console.log\`, a resolved Promise callback, and a zero-delay timer.
-7. Compare a sequential and concurrent approach with elapsed time printed using \`Date.now()\` or \`performance.now()\`. Explain why precise timings vary.
+1. Write `wait(ms)`, returning a Promise fulfilled after a timer.
+2. Implement `getStudent(id)`, `getCourse(courseId)`, and `getProgress(studentId)` using Promises and delays of roughly 50–150 ms.
+3. Use `async`/`await` to load the student first, then use `Promise.all` to load course and progress concurrently.
+4. Return an object with exactly `student`, `course`, and `progressPercent`.
+5. Demonstrate and handle one rejected lookup with `try/catch`; log an understandable message without printing an unhandled rejection.
+6. Predict and demonstrate the log order of `console.log`, a resolved Promise callback, and a zero-delay timer.
+7. Compare a sequential and concurrent approach with elapsed time printed using `Date.now()` or `performance.now()`. Explain why precise timings vary.
 
 ## Sample output
 
@@ -29,13 +29,13 @@ You may choose your own sample data. **Do not hard-code the final dashboard obje
 
 ## Questions to include in your README
 
-- Why can't the course lookup start before you know the \`courseId\`?
+- Why can't the course lookup start before you know the `courseId`?
 - Why can course and progress lookups overlap after loading the student?
-- Does \`Promise.all\` cancel other operations if one rejects?
-- Why doesn't \`await\` freeze all of Node.js?
+- Does `Promise.all` cancel other operations if one rejects?
+- Why doesn't `await` freeze all of Node.js?
 
 ## Submission
 
 Submit one JavaScript file and a README with run instructions, successful output, failure output, and a short explanation of the execution order. Be prepared to change one delay or failure condition during a student review.
 
-**Hints:** Use \`new Promise((resolve, reject) => ...)\` and \`setTimeout\`; for a rejection demo, reject with \`new Error("...")\`. The instructor solution is kept private.
+**Hints:** Use `new Promise((resolve, reject) => ...)` and `setTimeout`; for a rejection demo, reject with `new Error("...")`. The instructor solution is kept private.
