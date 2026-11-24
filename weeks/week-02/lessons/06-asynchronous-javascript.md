@@ -6,9 +6,9 @@ When a backend handles a request, it may need to wait for a file, database, or a
 
 ## What you'll learn
 
-By the end you should be able to predict the order of simple asynchronous logs; use callbacks, promises, \`async\`/\`await\`, and \`try\`/\`catch\`; distinguish sequential from concurrent operations; and explain why asynchronous I/O does **not** automatically make CPU-heavy work faster.
+By the end you should be able to predict the order of simple asynchronous logs; use callbacks, promises, `async`/`await`, and `try`/`catch`; distinguish sequential from concurrent operations; and explain why asynchronous I/O does **not** automatically make CPU-heavy work faster.
 
-**Try the examples:** Code fences marked \`javascript {cmd="node"}\` can run in VS Code with [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) when execution is enabled for this *trusted* workspace. They are also readable on GitHub. If you prefer the terminal, the [single JavaScript demo file](../examples/06-asynchronous-javascript.js) has each example commented out for one-at-a-time execution. Run with \`node weeks/week-02/examples/06-asynchronous-javascript.js\` from the repository root.
+**Try the examples:** Code fences marked `javascript {cmd="node"}` can run in VS Code with [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) when execution is enabled for this *trusted* workspace. They are also readable on GitHub. If you prefer the terminal, the [single JavaScript demo file](../examples/06-asynchronous-javascript.js) has each example commented out for one-at-a-time execution. Run with `node weeks/week-02/examples/06-asynchronous-javascript.js` from the repository root.
 
 ![A synchronous step and asynchronous waiting have different effects on execution](../images/06-sync-vs-async.svg)
 
@@ -36,7 +36,7 @@ console.log("B: continue");
 // A, B, C
 ~~~
 
-\`setTimeout(..., 0)\` schedules a callback for a later timer phase. It **does not** interrupt the code that is currently running or guarantee instant execution.
+`setTimeout(..., 0)` schedules a callback for a later timer phase. It **does not** interrupt the code that is currently running or guarantee instant execution.
 
 An important distinction: asynchronous **waiting** is not the same thing as doing expensive calculations on another JavaScript thread. CPU-heavy synchronous code can still block responsiveness.
 
@@ -46,11 +46,11 @@ Imagine the server needs a student's course progress from another service. It ca
 
 **Remember:** A timer demonstration is a model of waiting, not a real database or HTTP request.
 
-**Practice:** Predict the order of \`"one"\`, \`"two"\`, and \`"later"\` if the timer is scheduled between the two logs. Why does delay 0 not mean “run first”?
+**Practice:** Predict the order of `"one"`, `"two"`, and `"later"` if the timer is scheduled between the two logs. Why does delay 0 not mean “run first”?
 
 ## 6.2 Understanding Callbacks and Asynchronous Operations
 
-A **callback** is a function passed to another function so that the receiving function can invoke it. Callbacks are not inherently asynchronous: \`array.map()\` uses synchronous callbacks, whereas \`setTimeout()\` schedules a callback for later.
+A **callback** is a function passed to another function so that the receiving function can invoke it. Callbacks are not inherently asynchronous: `array.map()` uses synchronous callbacks, whereas `setTimeout()` schedules a callback for later.
 
 ~~~javascript {cmd="node"}
 const names = ["Hana", "Sami"];
@@ -77,13 +77,13 @@ console.log("Doing something else");
 // Received: Hana
 ~~~
 
-**What to notice:** \`loadStudent\` is called now, while the callback runs later. Passing \`callback\` is not the same as invoking \`callback()\` immediately.
+**What to notice:** `loadStudent` is called now, while the callback runs later. Passing `callback` is not the same as invoking `callback()` immediately.
 
 Callbacks can become hard to follow when each operation depends on the previous result. That nested shape is sometimes called *callback hell*—the real problem is difficult-to-manage control flow, error handling, and readability, not indentation alone. Promises provide another way to represent completion.
 
-**Practice:** Which callback above runs synchronously? What will happen if you write \`setTimeout(console.log("Hi"), 100)\` instead of \`setTimeout(() => console.log("Hi"), 100)\`?
+**Practice:** Which callback above runs synchronously? What will happen if you write `setTimeout(console.log("Hi"), 100)` instead of `setTimeout(() => console.log("Hi"), 100)`?
 
-## 6.3 Working with Promises: \`then\`, \`catch\`, and \`finally\`
+## 6.3 Working with Promises: `then`, `catch`, and `finally`
 
 A **Promise** represents the eventual outcome of an asynchronous operation. It begins **pending** and eventually becomes **fulfilled** with a result or **rejected** with a reason. Once settled, it does not change to another state.
 
@@ -108,9 +108,9 @@ console.log("After starting request");
 // Request finished
 ~~~
 
-- \`.then(handler)\` handles a fulfilled result. A return value from the handler becomes the next chain's result.
-- \`.catch(handler)\` handles a rejection or error propagated from an earlier handler.
-- \`.finally(handler)\` runs after the chain settles. It is generally for cleanup or status logging, not for replacing the result.
+- `.then(handler)` handles a fulfilled result. A return value from the handler becomes the next chain's result.
+- `.catch(handler)` handles a rejection or error propagated from an earlier handler.
+- `.finally(handler)` runs after the chain settles. It is generally for cleanup or status logging, not for replacing the result.
 
 ### Predict the order: synchronous code, promise, timer
 
@@ -140,11 +140,11 @@ Promise.reject(new Error("Student not found"))
 
 Attach rejection handlers. An **unhandled rejection** is a real bug; Node.js behavior and process handling may depend on runtime configuration. A rejected promise does not become a valid student record.
 
-**Practice:** Why isn't the first \`.then\` called in the rejection example? What does \`.finally\` run for?
+**Practice:** Why isn't the first `.then` called in the rejection example? What does `.finally` run for?
 
-## 6.4 Writing Asynchronous Code with \`async\` and \`await\`
+## 6.4 Writing Asynchronous Code with `async` and `await`
 
-An \`async\` function **always returns a Promise**. Within an async function, \`await\` suspends *that function's continuation* until the awaited value settles. It does **not** freeze the whole Node.js process or make every other task wait.
+An `async` function **always returns a Promise**. Within an async function, `await` suspends *that function's continuation* until the awaited value settles. It does **not** freeze the whole Node.js process or make every other task wait.
 
 ~~~javascript {cmd="node"}
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -165,7 +165,7 @@ console.log("After calling");
 // Result: Hana
 ~~~
 
-\`async\`/\`await\` is a more sequential-looking way to work with promises. It does **not** eliminate promises, errors, or the need to consider concurrency.
+`async`/`await` is a more sequential-looking way to work with promises. It does **not** eliminate promises, errors, or the need to consider concurrency.
 
 ~~~javascript {cmd="node"}
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -181,11 +181,11 @@ console.log("Outside: keeps running");
 // Inside: after await
 ~~~
 
-**Practice:** Does \`await\` block other JavaScript tasks? What does an async function return if it explicitly says \`return 5\`?
+**Practice:** Does `await` block other JavaScript tasks? What does an async function return if it explicitly says `return 5`?
 
-## 6.5 Handling Errors with \`try\`, \`catch\`, and \`finally\`
+## 6.5 Handling Errors with `try`, `catch`, and `finally`
 
-If an awaited Promise rejects, the \`await\` expression throws inside its containing async function. Use \`try/catch\` to handle expected failures and \`finally\` to perform necessary cleanup.
+If an awaited Promise rejects, the `await` expression throws inside its containing async function. Use `try/catch` to handle expected failures and `finally` to perform necessary cleanup.
 
 ~~~javascript {cmd="node"}
 async function getProfile(id) {
@@ -209,7 +209,7 @@ main();
 
 Use meaningful errors. For a real API, the caller may need a suitable HTTP status and a controlled public error message; exposing raw stacks or secrets is unsafe.
 
-**Important:** A \`try/catch\` around the *scheduling* of a timer does not catch exceptions thrown inside a timer callback later. Exceptions need to be handled in the correct asynchronous context.
+**Important:** A `try/catch` around the *scheduling* of a timer does not catch exceptions thrown inside a timer callback later. Exceptions need to be handled in the correct asynchronous context.
 
 ~~~javascript {cmd="node"}
 setTimeout(() => {
@@ -221,9 +221,9 @@ setTimeout(() => {
 }, 0);
 ~~~
 
-**Practice:** If a \`finally\` block runs, does that guarantee success? Where would you place cleanup after an awaited simulated request?
+**Practice:** If a `finally` block runs, does that guarantee success? Where would you place cleanup after an awaited simulated request?
 
-## 6.6 Sequential vs. Parallel Execution (\`Promise.all\`)
+## 6.6 Sequential vs. Parallel Execution (`Promise.all`)
 
 Sometimes one operation **depends** on another. Then you need *sequential* execution. Other times two lookups are independent; starting both before awaiting them allows them to **overlap**.
 
@@ -243,7 +243,7 @@ run();
 // About 270 ms, plus scheduling overhead.
 ~~~
 
-### Concurrent waiting with \`Promise.all\`
+### Concurrent waiting with `Promise.all`
 
 ~~~javascript {cmd="node"}
 const simulate = (label, ms) => new Promise(resolve => {
@@ -263,7 +263,7 @@ run();
 
 Here “parallel” refers to **overlapping asynchronous waits**. It is not a claim that the JavaScript CPU work ran on multiple threads. Exact timings vary by machine and scheduling.
 
-\`Promise.all\` preserves result order according to the input array, regardless of which operation settles first. If an input rejects, the returned Promise rejects; **the other operations are not automatically cancelled**.
+`Promise.all` preserves result order according to the input array, regardless of which operation settles first. If an input rejects, the returned Promise rejects; **the other operations are not automatically cancelled**.
 
 ~~~javascript {cmd="node"}
 function simulate(label, ms, fail = false) {
