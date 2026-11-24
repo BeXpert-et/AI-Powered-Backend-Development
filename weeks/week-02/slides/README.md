@@ -11,7 +11,7 @@ The presentation accompanies the student Markdown and JavaScript file. It is des
 3. Follow a callback from scheduling to later execution.
 4. Show a Promise moving from pending to either fulfilled or rejected.
 5. Visualize simple log order: synchronous code, promise microtask, timer callback.
-6. Show how \`await\` pauses its async function, not the whole process.
+6. Show how `await` pauses its async function, not the whole process.
 7. Compare two independent waits performed sequentially and concurrently.
 8. End with a simulated student dashboard.
 
